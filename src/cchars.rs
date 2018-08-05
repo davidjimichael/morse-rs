@@ -42,7 +42,7 @@ pub fn encode_char(letter: char) -> &'static str {
         '7' =>	"−−···",
         '8' =>	"−−−··",
         '9' =>	"−−−−·",	  	        
-        _ => panic!("Non ascii alphanumeric")
+        _ => panic!("Decode error: Non ascii alphanumeric")
     }
 }
 
@@ -84,6 +84,7 @@ pub fn decode_cipher_char(cipher: &str) -> char {
         "−−···" => '7',
         "−−−··" => '8',
         "−−−−·" => '9',
-        _ => panic!("Non ascii alphanumeric")
+        " " => ' ',
+        _ => panic!("Encode error: Non ascii alphanumeric")
     }
 }
