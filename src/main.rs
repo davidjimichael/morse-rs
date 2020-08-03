@@ -1,18 +1,18 @@
 fn main() {
     let args: Vec<_> = std::env::args().collect();
     if args.len() < 3 {
-        eprintln!("ERROR: expected input -> cargo run \"<message>\" <encode|decode>");
+        eprintln!("ERROR: expected input -> cargo run <-e|-d> \"<message>\"");
         return;
     }
 
     let text = &args[2];
     let action = &args[1];
     
-    if action == "encode" {
+    if action == "-e" {
         let _res = encode(text);
         println!("Encoded \"{}\":\n{}", text, _res);
     }
-    else if action == "decode" {
+    else if action == "-d" {
         let _res = decode(text);
         println!("Decoded \"{}\":\n{}", text, _res);
     }
